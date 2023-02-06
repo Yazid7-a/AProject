@@ -18,36 +18,36 @@ import javax.inject.Inject;
 public class MyListServiceImpl implements MylistService {
 
     @Inject
-    private MylistDao mylistDao;
+    private MylistDao InterfazMylist;
     
     @Override
     public List<Mylist> findAllMylist() {
-        return mylistDao.findAllMylist();
+        return InterfazMylist.findAllMylist();
     }
 
     @Override
     public Mylist findMylistByID(Mylist mylist) {
-        return mylistDao.findMylistByID(mylist);
+        return InterfazMylist.findMylistByID(mylist);
     }
 
     @Override
     public Mylist findMylistByUser(Mylist mylist) {
-        return mylistDao.findMylistByUser(mylist);
+        return InterfazMylist.findMylistByUser(mylist);
     }
 
     @Override
     public void insert(Mylist mylist) {
-        mylistDao.insert(mylist);
+        InterfazMylist.insert(mylist);
     }
 
     @Override
     public void updateMylist(Mylist mylist) {
-        mylistDao.updateMylist(mylist);
+        InterfazMylist.updateMylist(mylist);
     }
 
     @Override
     public void deleteMylist(Mylist mylist) {
-        mylistDao.deleteMylist(mylist);
+        InterfazMylist.deleteMylist(mylist);
     }
     
 }

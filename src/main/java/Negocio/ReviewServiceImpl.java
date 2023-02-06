@@ -18,36 +18,36 @@ import javax.inject.Inject;
 public class ReviewServiceImpl implements ReviewService {
 
     @Inject
-        private ReviewDao reviewDao;
+        private ReviewDao InterfazReview;
     
     @Override
     public List<Review> findAllReview() {
-        return reviewDao.findAllReview();
+        return InterfazReview.findAllReview();
     }
 
     @Override
     public Review findReviewByID(Review review) {
-        return reviewDao.findReviewByID(review);
+        return InterfazReview.findReviewByID(review);
     }
 
     @Override
     public Review findReviewByUser(Review Review) {
-        return reviewDao.findReviewByUser(Review);
+        return InterfazReview.findReviewByUser(Review);
     }
 
     @Override
     public void insert(Review review) {
-        reviewDao.insert(review);
+        InterfazReview.insert(review);
     }
 
     @Override
     public void updateReview(Review review) {
-    reviewDao.updateReview(review);
+    InterfazReview.updateReview(review);
     }
 
     @Override
     public void deleteReview(Review review) {
-      reviewDao.deleteReview(review);
+      InterfazReview.deleteReview(review);
     }
     
 }

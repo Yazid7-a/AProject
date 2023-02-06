@@ -4,7 +4,6 @@
  */
 package datos;
 import Dominio.*;
-import Interfaces.InterfazReview;
 import static datos.Conexion.close;
 import static datos.Conexion.getConnection;
 import java.io.FileInputStream;
@@ -31,7 +30,7 @@ public class ReviewDao implements InterfazReview {
     // Ahora inyectamos la unidad de persistencia a través del API de JPA
     // Simplemente tenemos que usar la anotación e indicar el nombre de nuestra
     // unidad de persistencia
-    @PersistenceContext(unitName="ReviewPU")
+    @PersistenceContext(unitName="animeproject")
     EntityManager em;
     
     // Con este objeto de em ya podemos interactuar con nuestra BD

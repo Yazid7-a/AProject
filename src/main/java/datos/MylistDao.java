@@ -4,18 +4,8 @@
  */
 package datos;
 
-import Dominio.Chapters;
+
 import Dominio.Mylist;
-import Interfaces.InterfazChapters;
-import Interfaces.InterfazMylist;
-import static datos.Conexion.close;
-import static datos.Conexion.getConnection;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -33,7 +23,7 @@ public class MylistDao implements InterfazMylist {
     // Ahora inyectamos la unidad de persistencia a través del API de JPA
     // Simplemente tenemos que usar la anotación e indicar el nombre de nuestra
     // unidad de persistencia
-    @PersistenceContext(unitName="MylistPU")
+    @PersistenceContext(unitName="animeproject")
     EntityManager em;
     
     // Con este objeto de em ya podemos interactuar con nuestra BD
@@ -58,7 +48,7 @@ public class MylistDao implements InterfazMylist {
     public Mylist findMylistByUser(Mylist mylist) {
         // En este caso no vamos a usar un NamedQuery, que podríamos haber 
         // agregado en la Entidad de Persona sino que vamos a incluirlo directamente.
-        Query query = em.createQuery("from Chapters c where c.title = :title");
+        Query query = em.createQuery("from Mylist c where c.iduserFK= :iduserFK");
         query.setParameter("title", mylist.getIduserFK());
         // Y ahroa sólo esperamos un resultado, porque el email debe de ser único
         // sino lo hemos definido así lo modificamos en nuestra tabla como unique

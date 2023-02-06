@@ -4,20 +4,7 @@
  */
 package datos;
 
-import Dominio.Review;
 import Dominio.User;
-import Interfaces.InterfazReview;
-import Interfaces.InterfazUsuario;
-import static datos.Conexion.close;
-import static datos.Conexion.getConnection;
-import java.math.BigInteger;
-import java.security.MessageDigest;
-import java.security.NoSuchAlgorithmException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -36,7 +23,7 @@ public class UserDao implements InterfazUsuario {
     // Ahora inyectamos la unidad de persistencia a través del API de JPA
     // Simplemente tenemos que usar la anotación e indicar el nombre de nuestra
     // unidad de persistencia
-    @PersistenceContext(unitName="ReviewPU")
+    @PersistenceContext(unitName="animeproject")
     EntityManager em;
     
     // Con este objeto de em ya podemos interactuar con nuestra BD

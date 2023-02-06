@@ -86,13 +86,13 @@ public class Anime implements Serializable {
     @Column(name = "rate")
     private Double rate;
     @Column(name = "movie")
-    private Boolean movie;
+    private Short movie;
     @Size(max = 45)
     @Column(name = "category")
     private String category;
     @Lob
     @Column(name = "portada")
-    private String portada;
+    private byte[] portada;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "animeIdanime")
     private List<Chapters> chaptersList;
     @OneToMany(cascade = CascadeType.ALL, mappedBy = "animeidFK")
@@ -107,49 +107,12 @@ public class Anime implements Serializable {
         this.idanime = idanime;
     }
 
-    public Anime(String name, String author, String description, Integer ncaps, Integer seasons, Date launch, Date end, String language, Double rate, Boolean movie, String category, String portada, List<Chapters> chaptersList, List<Mylist> mylistList, List<Review> reviewList) {
-        this.name = name;
-        this.author = author;
-        this.description = description;
-        this.ncaps = ncaps;
-        this.seasons = seasons;
-        this.launch = launch;
-        this.end = end;
-        this.language = language;
-        this.rate = rate;
-        this.movie = movie;
-        this.category = category;
-        this.portada = portada;
-        this.chaptersList = chaptersList;
-        this.mylistList = mylistList;
-        this.reviewList = reviewList;
-    }
-
     public Anime(Integer idanime, String name, String author, Date launch, String language) {
         this.idanime = idanime;
         this.name = name;
         this.author = author;
         this.launch = launch;
         this.language = language;
-    }
-
-    public Anime(String name, String author, String description, int ncaps, int seasons, java.sql.Date launch, java.sql.Date end, String language, double rate, boolean movie, String category, String portada) {
-        this.name = name;
-        this.author = author;
-        this.description = description;
-        this.ncaps = ncaps;
-        this.seasons = seasons;
-        this.launch = launch;
-        this.end = end;
-        this.language = language;
-        this.rate = rate;
-        this.movie = movie;
-        this.category = category;
-        this.portada = portada;
-        this.chaptersList = chaptersList;
-        this.mylistList = mylistList;
-        this.reviewList = reviewList;
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     public Integer getIdanime() {
@@ -232,11 +195,11 @@ public class Anime implements Serializable {
         this.rate = rate;
     }
 
-    public Boolean getMovie() {
+    public Short getMovie() {
         return movie;
     }
 
-    public void setMovie(Boolean movie) {
+    public void setMovie(Short movie) {
         this.movie = movie;
     }
 
@@ -248,11 +211,11 @@ public class Anime implements Serializable {
         this.category = category;
     }
 
-    public String getPortada() {
+    public byte[] getPortada() {
         return portada;
     }
 
-    public void setPortada(String portada) {
+    public void setPortada(byte[] portada) {
         this.portada = portada;
     }
 

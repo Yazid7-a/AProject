@@ -20,43 +20,44 @@ import javax.inject.Inject;
 public class UserServiceImpl implements UserService {
 
     @Inject
-    private UserDao userDao;
+    private UserDao InterfazUser;
+    
     @Override
     public List<User> findAllUser() {
-        return userDao.findAllUser();
+        return InterfazUser.findAllUser();
     }
 
     @Override
     public User findUserByID(User user) {
-        return userDao.findUserByID(user);
+        return InterfazUser.findUserByID(user);
     }
 
     @Override
     public User findUserByEmail(User user) {
-        return userDao.findUserByEmail(user);
+        return InterfazUser.findUserByEmail(user);
     }
 
     @Override
     public void insert(User user) {
-        userDao.insert(user);
+        InterfazUser.insert(user);
     }
 
     @Override
     public void updateUser(User user) {
-        userDao.updateUser(user);
+        InterfazUser.updateUser(user);
     }
 
     @Override
     public void deleteUser(User user) {
-        userDao.deleteUser(user);
+        InterfazUser.deleteUser(user);
     }
     
       @Override
     public boolean comprobar(User user){
-        int num = this.userDao.findAllUser().size();     //Lo he tenido que meter en una variable para que funcione...
+        int num = this.InterfazUser.findAllUser().size();     //Lo he tenido que meter en una variable para que funcione...
         for (int i = 0; i < num; i++) {
             //System.out.println(seleccionar().size());
-            if(this.userDao.findAllUser().get(i).getEmail().equalsIgnoreCase(user.getEmail()) && this.userDao.findAllUser().get(i).getPassword().equalsIgnoreCase(user.getPassword())){
+            if(this.InterfazUser.findAllUser().get(i).getEmail().equalsIgnoreCase(user.getEmail()) && this.InterfazUser.findAllUser().get(i).getPassword().equalsIgnoreCase(user.getPassword())){
                 return true;
             }
         }

@@ -9,7 +9,6 @@ import datos.AnimeDao;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
-import javax.persistence.Query;
 
 /**
  *
@@ -19,42 +18,42 @@ import javax.persistence.Query;
 public class AnimeServiceImpl implements AnimeService {
     
     @Inject  
-    private AnimeDao animeDao;
+    private AnimeDao InterfazAnime;
     
     
         
     @Override
     public List<Anime> listarAnimes() {       
-        return animeDao.findAllAnimes();
+        return InterfazAnime.findAllAnimes();
     }
     
     @Override
    public Anime encontrarAnimePorID(Anime anime){
-       return animeDao.findAnimeByID(anime);
+       return InterfazAnime.findAnimeByID(anime);
    }
     
    @Override
     public Anime econtrarAnimePorNombre(Anime anime){
-        return animeDao.findAnimeByName(anime);
+        return InterfazAnime.findAnimeByName(anime);
     }
     
     @Override
     public Anime econtrarAnimePorIdioma(Anime anime){
-        return animeDao.findAnimeByLanguage(anime);
+        return InterfazAnime.findAnimeByLanguage(anime);
     }
     
     @Override
     public void registrarAnime(Anime anime){
-         animeDao.insert(anime);
+         InterfazAnime.insert(anime);
     }
     
     @Override
     public void modificarAnime(Anime anime){
-        animeDao.updateAnime(anime);
+        InterfazAnime.updateAnime(anime);
     }
     
     @Override
     public void eliminarAnime(Anime anime){
-        animeDao.deleteAnime(anime);
+        InterfazAnime.deleteAnime(anime);
     }
 }

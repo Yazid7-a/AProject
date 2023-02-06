@@ -18,36 +18,36 @@ import javax.inject.Inject;
 public class ChaptersServiceImpl implements ChaptersService{
 
     @Inject  
-    private ChaptersDao chaptersDao;
+    private ChaptersDao InterfazChapters;
     
     @Override
     public List<Chapters> findAllChapters() {
-        return chaptersDao.findAllChapters();
+        return InterfazChapters.findAllChapters();
     }
 
     @Override
     public Chapters findChaptersByID(Chapters chapters) {
-        return chaptersDao.findChaptersByID(chapters);
+        return InterfazChapters.findChaptersByID(chapters);
     }
 
     @Override
     public Chapters findChaptersByName(Chapters chapters) {
-        return chaptersDao.findChaptersByName(chapters);
+        return InterfazChapters.findChaptersByName(chapters);
     }
 
     @Override
     public void insert(Chapters chapters) {
-        chaptersDao.insert(chapters);
+        InterfazChapters.insert(chapters);
     }
 
     @Override
     public void updateChapters(Chapters chapters) {
-        chaptersDao.updateChapters(chapters);
+        InterfazChapters.updateChapters(chapters);
     }
 
     @Override
     public void deleteChapters(Chapters chapters) {
-        chaptersDao.deleteChapters(chapters);
+        InterfazChapters.deleteChapters(chapters);
     }
     
 }

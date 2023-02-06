@@ -3,18 +3,8 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package datos;
-import Dominio.Anime;
+
 import Dominio.Chapters;
-import Interfaces.InterfazAnime;
-import Interfaces.InterfazChapters;
-import static datos.Conexion.close;
-import static datos.Conexion.getConnection;
-import java.sql.Connection;
-import java.sql.Date;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.util.ArrayList;
 import java.util.List;
 import javax.ejb.Stateless;
 import javax.persistence.EntityManager;
@@ -31,7 +21,7 @@ public class ChaptersDao implements InterfazChapters {
     // Ahora inyectamos la unidad de persistencia a través del API de JPA
     // Simplemente tenemos que usar la anotación e indicar el nombre de nuestra
     // unidad de persistencia
-    @PersistenceContext(unitName="ChaptersPU")
+    @PersistenceContext(unitName="animeproject")
     EntityManager em;
     
     // Con este objeto de em ya podemos interactuar con nuestra BD
